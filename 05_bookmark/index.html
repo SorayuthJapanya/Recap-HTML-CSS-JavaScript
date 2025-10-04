@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://fonts.googleapis.com/css?family=Inter:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic" rel="stylesheet" />
+    <title>Bookmark Saver - Eurocode</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="w-full min-h-screen flex items-center justify-center bg-gray-100 text-gray-800">
+    <div class="app-container bg-white p-5 rounded-xl shadow-xl w-[90%] max-w-[400px]">
+        <h1 class="text-3xl font-bold mb-5 text-emerald-500 text-center">Bookmark Saver</h1>
+        <form id="bookmark-form" class="input-container flex flex-col gap-4 mb-5 w-full">
+            <input type="text" name="bookmark-name" id="bookmark-name" placeholder="Bookmark Name" class="w-full p-2.5 rounded-sm border-[1.5px] border-gray-400 focus:border-emerald-600 focus:shadow-sm outline-none transition-all duration-300 ease" required>
+            <input type="url" name="bookmark-url" id="bookmark-url" placeholder="Bookmark Url" class="w-full p-2.5 rounded-sm border-[1.5px] border-gray-400 focus:border-emerald-600 focus:shadow-sm outline-none transition-all duration-300 ease" required>
+            <button type="submit" class="w-full p-2.5 rounded-md text-white cursor-pointer bg-emerald-500 hover:bg-emerald-600 transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0">Add Bookmark</button>
+        </form>
+
+        <ul id="bookmark-list">
+
+        </ul>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

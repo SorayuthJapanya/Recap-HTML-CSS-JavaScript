@@ -1,0 +1,14 @@
+/* Import  */
+@import url(https://fonts.googleapis.com/css?family=Ubuntu:300,300italic,regular,italic,500,500italic,700,700italic);
+
+* {
+  font-family: "Ubuntu", sans-serif;
+}
+
+.group.error input {
+  border-color: #e74c3c;
+}
+
+.group.success input {
+  border-color: #2ecc71;
+}

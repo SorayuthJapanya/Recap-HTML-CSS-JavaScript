@@ -1,7 +1,7 @@
 ﻿# RECAP-HTML-CSS-JavaDcript
 
 A collection of html css javascript projects.  
-Currently includes **quiz-game** built with html css and javascript
+Currently I Finished **3 project** built with html css and javascript
 
 ---
 
@@ -9,6 +9,7 @@ Currently includes **quiz-game** built with html css and javascript
 
 ```
 D: RECAP-HTML-CSS-JavaDcript
-|
-└───quiz-game
+├───01_quiz-game
+├───02_color-palette-generator
+└───03_drag&drop-board
 ```

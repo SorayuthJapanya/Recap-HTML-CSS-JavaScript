@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Passord generator - Eurocode</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+    <style type="text/tailwindcss">
+        @theme {
+        --color-primary: #516395;
+        --color-weak: var(--color-red-500);
+        --color-medium: var(--color-yellow-500);
+        --color-strong: var(--color-green-500)
+      }
+    </style>
+</head>
+
+<body
+    class="relative w-full min-h-screen flex items-center justify-center bg-gradient-to-r from-[#614385] to-[#516395] text-gray-500">
+    <div class="conatainer w-full max-w-[360px] p-6 rounded-2xl bg-gray-100 shadow-xl space-y-6">
+        <!-- Header -->
+        <header class="w-full text-center flex flex-col items-center justify-center gap-1">
+            <h1 class="text-2xl font-bold text-primary">Password Generator</h1>
+            <div class="bg-primary h-1 w-[50%] rounded-full"></div>
+        </header>
+
+        <!-- Password generator display -->
+        <div class="relative display w-full">
+            <input type="text" value="1234" readonly id="password" class="relative w-full px-2 py-3 bg-white rounded-md text-base text-gray-400 outline-none border border-gray-300 ps-4">
+            <button id="copy-btn" title="Copy to clipboard"
+                class="absolute right-2 top-1.5 px-2 py-1.5 rounded-full bg-gray-200 hover:bg-gray-300 duration-300 cursor-pointer">
+                <i class="fa-regular fa-copy size-5"></i>
+            </button>
+        </div>
+
+        <div class="options flex flex-col items-start justify-center gap-4 bg-white p-4 rounded-md">
+            <!-- Length -->
+            <div class="option w-full flex items-center justify-between">
+                <label for="length">Password Length</label>
+                <div class="range-container flex items-center justify-between gap-2">
+                    <input type="range" name="length" id="length" min="6" max="24" value="12" class="accent-primary">
+                    <span id="length-value" class="px-2 py-1 rounded-md bg-primary/30 text-primary font-bold">12</span>
+                </div>
+            </div>
+            <!-- Uppercase -->
+            <div class="option w-full flex items-center justify-between">
+                <label for="uppercase" class="cursor-pointer" readonly>Include Uppercase</label>
+                <input type="checkbox" name="uppercase" id="uppercase" class="w-4 h-4 accent-primary rounded-sm cursor-pointer">
+            </div>
+            <!-- Lowercase -->
+            <div class="option w-full flex items-center justify-between">
+                <label for="lowercase" class="cursor-pointer" readonly>Include Lowercase</label>
+                <input type="checkbox" name="lowercase" id="lowercase" class="w-4 h-4 accent-primary rounded-sm cursor-pointer">
+            </div>
+            <!-- Number -->
+            <div class="option w-full flex items-center justify-between">
+                <label for="numbers" class="cursor-pointer" readonly>Include Numbers</label>
+                <input type="checkbox" name="numbers" id="numbers" class="w-4 h-4 accent-primary rounded-sm cursor-pointer">
+            </div>
+            <!-- Synbols -->
+            <div class="option w-full flex items-center justify-between">
+                <label for="symbols" class="cursor-pointer" readonly>Include Symbols</label>
+                <input type="checkbox" name="symbols" id="symbols" class="w-4 h-4 accent-primary rounded-sm cursor-pointer">
+            </div>
+        </div>
+
+        <button type="button" id="generate-btn" class="w-full flex items-center justify-center gap-1 p-2 rounded-md font-semibold bg-gradient-to-r from-[#614385] to-[#516395] text-white cursor-pointer transform transition-all hover:-translate-y-1 active:translate-y-0 duration-300 hover:shadow-xl">
+            <i class="fa-solid fa-key"></i>
+            Generate Password
+        </button>
+
+        <div class="strenght-container text-sm space-y-2">
+            <p class="w-full flex items-center justify-between font-medium">Password Strength: <span id="strength-label" class="text-weak font-semibold">Weak</span></p>
+            <div class="strength-meter h-2 rounded-full w-full inset-shadow-md overflow-hidden bg-gray-200">
+                <div class="strength-bar h-full w-0 min-w-[5%] bg-weak transition-all duration-300 ease rounded-full"></div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

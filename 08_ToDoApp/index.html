@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App - Eurocode</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+    <style type="text/tailwindcss">
+        @theme {
+        --color-primary: #7749f8;
+        --color-primary-light: #9775fa;
+        --color-dark: #212529;
+        --color-light: #f8f9fa;
+        --color-gray: #868e96;
+        --color-danger: #fa5252;
+        --color-success: #40c057;
+        --color-borderColor: #e9ecef;
+        }
+
+        @layer components{
+            .filter {
+                @apply px-1 py-0.5 cursor-pointer text-gray border-b border-transparent transition-all duration-300 hover:text-primary
+            }
+
+            .filter.active {
+                @apply text-primary border-b-2 border-primary font-medium
+            }
+            
+            .checkbox-container {
+                @apply mr-3 flex items-center
+            }
+
+            .todo-checkbox {
+                @apply opacity-0 absolute
+            }
+
+            .checkmark {
+                @apply inline-block w-5 h-5 border-2 border-gray-300 rounded-sm relative cursor-pointer transition-all duration-300
+            }
+
+            .todo-checkbox:checked + .checkmark {
+                @apply bg-success border-success
+            }
+
+            .todo-checkbox:checked + .checkmark::after {
+                content: "";
+                position: absolute;
+                left: 6px;
+                top: 2px;
+                width: 5px;
+                height: 10px;
+                border: solid white;
+                border-width: 0 2px 2px 0;
+                transform: rotate(45deg);
+            }
+
+            .todo-item {
+                @apply px-5 py-2.5 flex items-center transition-colors duration-300 hover:bg-light;
+            }
+
+            .todo-item-text {
+                @apply flex-1 text-base transition-all duration-300
+            }
+
+            .todo-item.completed .todo-item-text {
+                @apply line-through text-gray
+            }
+
+            .deleteBtn {
+                @apply bg-none border-none text-gray cursor-pointer text-base opacity-0 transition-all duration-300 group-hover:opacity-100 hover:text-danger
+            }
+        }
+    </style>
+</head>
+
+<body class="w-full min-h-screen bg-gray-100 flex justify-center items-center p-6 text-dark">
+    <div class="container w-full max-w-[500px] bg-white rounded-xl overflow-hidden shadow-xl">
+        <header class="bg-primary text-white px-5 py-4">
+            <h1 class="text-xl font-semibold">
+                <i class="fa-solid fa-circle-check"></i>
+                My Tasks
+            </h1>
+            <p id="date" class="text-sm opacity-90"></p>
+        </header>
+
+        <div class="todo-input w-full px-5 py-4 flex gap-2 bg-light border-b border-borderColor">
+            <input type="text" name="task-input" id="task-input" placeholder="What do you need to do"
+                class="flex-1 px-3 py-2.5 border border-gray-300 text-base transition-all duration-300 focus:outline-none focus:border-primary focus:shadow-md rounded-md">
+            <button id="add-task"
+                class="text-white size-[45px] rounded-md bg-primary hover:bg-primary-light cursor-pointer transform transition-all ease hover:-translate-y-0.5 active:translate-y-0">
+                <i class="fa-solid fa-plus"></i>
+            </button>
+        </div>
+
+        <div class="filters w-full px-5 py-2 flex gap-4 boder-b border-borderColor px-5 py-3">
+            <span class="filter active" data-filter="all">All</span>
+            <span class="filter" data-filter="active">Active</span>
+            <span class="filter " data-filter="completed">Completed</span>
+        </div>
+
+        <div class="todo-container max-h-[300px] overflow-y-auto">
+            <ul id="todo-list" class="">
+                <!-- li will be inserted right here later -->
+                <!-- <li class="todo-item group">
+                    <label class="checkbox-container">
+                        <input type="checkbox" class="todo-checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                    <span class="todo-item-text">Buy groceries</span>
+                    <button class="deleteBtn"><i class="fa-solid fa-xmark"></i></button>
+                </li> -->
+            </ul>
+
+            <div id="empty-state" class="hidden flex flex-col items-center justify-center py-10 text-gray">
+                <i class="fa-solid fa-clipboard-list text-4xl mb-2.5 opacity-70"></i>
+                <p>No tasks here yet</p>
+            </div>
+
+        </div>
+        <footer class="flex justify-between items-center px-5 py-3 border-t border-borderColor bg-light text-sm">
+            <p id="items-left" class="text-gray">7 items left</p>
+            <button id="clear-completed"
+                class="text-sm text-gray cursor-pointer transition-all duration-300 hover:text-danger">Clear
+                Completed</button>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

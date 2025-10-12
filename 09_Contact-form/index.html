@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form - EuroCode</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+    <style type="text/tailwindcss">
+        @theme {
+        --color-primary: #4ade80;
+        --color-primary-dark: #22c55e;
+        --color-dark: #1a1a1a;
+        --color-light: #f3f4f6;
+        --color-gray: #9ca3af;
+        --color-card: #252525;
+        --color-input: #333;
+        }
+
+        @layer base {
+            label {
+                @apply w-full relative
+            }
+
+            input {
+                @apply w-full outline-none px-2 py-3 rounded-md ps-9 bg-input text-light text-sm border-2 border-transparent transition-colors hover:border-primary duration-300 focus:border-primary
+            }
+
+            textarea {
+                @apply w-full outline-none px-2 pt-3 pb-24 rounded-md ps-9 bg-input text-light text-sm border-2 border-transparent transition-colors hover:border-primary duration-300 focus:border-primary
+            }
+
+            .input-container i {
+                @apply absolute text-primary text-lg left-2 top-3.5
+            }
+
+            button {
+                @apply w-full flex items-center justify-center gap-2 bg-primary py-2.5 rounded-md cursor-pointer transform ease-in-out transition-all hover:-translate-y-0.5 hover:shadow-primary hover:bg-primary-dark active:translate-y-0 font-bold text-base text-dark 
+            }
+        }
+
+        @layer components{
+            .input-container {
+                @apply w-full grid grid-cols-1 sm:grid-cols-2 gap-4
+            }
+        }
+    </style>
+</head>
+
+<body class="w-full min-h-screen flex justify-center items-center bg-dark px-5">
+    <div class="container w-full max-w-[800px] p-6 bg-card rounded-xl space-y-6">
+        <header class="flex flex-col items-start justify-center">
+            <h1 class="font-bold text-2xl sm:text-3xl text-primary">Get in Touch</h1>
+            <p class="text-sm sm:text-base text-gray">Fill out the form below to context us</p>
+        </header>
+
+        <form id="contact-form" class="form-container space-y-4 pb-8 border-b border-gray-500">
+            <div class="input-container">
+                <label for="name">
+                    <input type="text" name="name" id="name" placeholder="Name" required>
+                    <i class="fa-solid fa-user"></i>
+                </label>
+                <label for="email">
+                    <input type="text" name="email" id="email" placeholder="Email" required>
+                    <i class="fa-solid fa-envelope"></i>
+                </label>
+            </div>
+            <div class="input-container">
+                <label for="phone">
+                    <input type="text" name="phone" id="phone" placeholder="Phone (optional)">
+                    <i class="fa-solid fa-phone"></i>
+                </label>
+                <label for="subject">
+                    <input type="text" name="subject" id="subject" placeholder="Subject" required>
+                    <i class="fa-solid fa-tag"></i>
+                </label>
+            </div>
+            <div class="input-container grid-cols-1">
+                <label for="message">
+                    <textarea name="message" id="message" placeholder="Your message"></textarea>
+                    <i class="fa-solid fa-message"></i>
+                </label>
+            </div>
+
+            <button type="submit">Send Message <i class="fa-solid fa-paper-plane block"></i></button>
+        </form>
+
+        <footer id="footer">
+            <p class="flex items-center gap-2 text-gray text-sm mb-1"><i class="fa-solid fa-location-dot text-primary"></i>123, Main Street, City, Country</p>
+            <p class="flex items-center gap-2 text-gray text-sm mb-1"><i class="fa-solid fa-envelope text-primary"></i>contact@example.com</p>
+            <p class="flex items-center gap-2 text-gray text-sm mb-1"><i class="fa-solid fa-location-dot text-primary"></i>+66 12 345 6789</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

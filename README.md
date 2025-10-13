@@ -1,8 +1,9 @@
 ﻿# RECAP-HTML-CSS-JavaDcript
 
 A collection of html css javascript projects.  
-Currently I Finished **9 project** built with html css and javascript
-We go to the last project bootcamp to recap html caa and javascipt
+Currently I Finished **10 project** built with html css and javascript
+I'm done to recap a html css and javascript 
+let's go to learn gas
 
 ---
 
@@ -18,5 +19,6 @@ D: RECAP-HTML-CSS-JavaDcript
 ├───06_form-validator
 ├───07_password-generator
 ├───08_ToDoApp
-└───09_Contact-form
+├───09_Contact-form
+└───10_curency-converter
 ```

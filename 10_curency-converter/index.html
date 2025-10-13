@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Converter App - Eurocode</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link
+        href="https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic"
+        rel="stylesheet" />
+    <style type="text/tailwindcss">
+        * {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        @theme {
+            --color-primary: #0f172a;
+            --color-secondary: #1e293b;
+            --color-input: #334155;
+            --color-textPrimary: #e2e8f0;
+            --color-textSecondary: #94a3b8;
+            --color-borderColor: #475569;
+            --color-accentPrimary: #3b82f6;
+            --color-accentSecondary: #2563eb;
+        }
+
+        @layer components {
+            .form-group {
+                @apply flex flex-col gap-1 justify-center items-start text-textSecondary text-base
+            }
+        }
+    </style>
+</head>
+
+<body class="w-full min-h-screen flex items-center justify-center px-8 bg-primary">
+    <div class="w-full max-w-[500px] p-6 rounded-lg bg-secondary space-y-6">
+        <h1 class="text-2xl sm:text-3xl text-textPrimary text-center mb-4 font-bold">Currency Converter</h1>
+
+        <form id="converter-form" class="curency-container space-y-4">
+            <!-- Amount -->
+            <div class="form-group">
+                <label for="amount">Amout</label>
+                <input type="number" name="amount" id="amount" placeholder="Enter amount"
+                    class="w-full p-2.5 rounded-md placeholder-textSecondary text-textPrimary bg-input outline-none border border-borderColor focus:border-accentPrimary focus:ring-accentPrimary duration-300"
+                    required>
+            </div>
+            <!-- Form -->
+            <div class="form-group">
+                <label for="from-currency">From</label>
+                <select name="from-currency" id="from-currency"
+                    class="w-full p-2.5 rounded-md placeholder-textSecondary text-textPrimary bg-input outline-none border border-borderColor focus:border-accentPrimary focus:ring-accentPrimary duration-300">
+                    <!-- Currency optinos will be inserted from our api-->
+                </select>
+            </div>
+            <!-- To -->
+            <div class="form-group">
+                <label for="to-currency">From</label>
+                <select name="to-currency" id="to-currency"
+                    class="w-full p-2.5 rounded-md placeholder-textSecondary text-textPrimary bg-input outline-none border border-borderColor focus:border-accentPrimary focus:ring-accentPrimary duration-300">
+                    <!-- Currency optinos will be inserted from our api-->
+                </select>
+            </div>
+
+            <!-- Button -->
+            <button type="submit"
+                class="w-full text-center text-base font-medium bg-accentPrimary hover:bg-accentSecondary tranform ease-in-out transition-all hover:-translate-y-1 active:translate-y-0 duration-300 py-2.5 rounded-lg text-textPrimary cursor-pointer active:bg-accentPrimary">Convert</button>
+        </form>
+
+        <p id="amount-result" class="text-center text-lg text-textPrimary font-normal">150 USD ≈ 132.45 THB</p>
+    </div>
+
+    <!-- Import JavaScript -->
+    <script src="script.js"></script>
+</body>
+
+</html>
